@@ -1,4 +1,4 @@
-## info201-finalproj
+## info201 Final Project Proposal
 # Project Description
 The data set that we will be working with is the College Scorecard Data collected from the U.S. Department of education. This dataset includes data from 1996 to 2016 for all undergraduate degree-granting institutions of higher education within the United States we accessed it from [the college scorecard](https://collegescorecard.ed.gov/data/). For our project we will mostly look at the recent data frame from 2015-2016 because it is the most relevant data. This data includes private and public undergraduate institutions. This data frame is used to increase transparency between choosing colleges.
 
