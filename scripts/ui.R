@@ -19,7 +19,13 @@ shinyUI(navbarPage("College Finder",
                                 sliderInput("price",
                                            "Maximum price of tuition per year:",
                                            min = 1000, max = 53000,
-                                           value = 10000, step = 1000)
+                                           value = 10000, step = 1000),
+                                selectInput("loc",
+                                            "State to look in:",
+                                            choices = as.list(state.abb),
+                                            selected = "WA",multiple = TRUE),
+                                checkboxInput("pub",
+                                              "Public schools only")
                               ), # End of sideparPanel
                               mainPanel(
                                 leafletOutput("map")
