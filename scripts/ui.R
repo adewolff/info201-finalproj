@@ -16,10 +16,13 @@ shinyUI(navbarPage("College Finder",
                             titlePanel("Geographic map of colleges"),
                             sidebarLayout(
                               sidebarPanel(
-                                "stuff goes here"
+                                sliderInput("price",
+                                           "Maximum price of tuition per year:",
+                                           min = 1000, max = 11000,
+                                           value = 5500, step = 500)
                               ), # End of sideparPanel
                               mainPanel(
-                                "More stuff goes here"
+                                leafletOutput("map")
                               ) # End of mainPanel
                             ) # End of sidebarLayout
                    ), # End of tabPanel
