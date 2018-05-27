@@ -18,8 +18,8 @@ shinyUI(navbarPage("College Finder",
                               sidebarPanel(
                                 sliderInput("price",
                                            "Maximum price of tuition per year:",
-                                           min = 1000, max = 11000,
-                                           value = 5500, step = 500)
+                                           min = 1000, max = 53000,
+                                           value = 10000, step = 1000)
                               ), # End of sideparPanel
                               mainPanel(
                                 leafletOutput("map")
