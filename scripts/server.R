@@ -2,7 +2,7 @@ library(shiny)
 library(dplyr)
 library(ggplot2)
 library(reshape2)
-source("../scripts/comparisontable.R")
+source("../scripts/comparisontable.R", local = TRUE)
 source("../scripts/comparisonbarchart.R")
 
 # Start Shiny Server
