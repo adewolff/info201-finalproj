@@ -9,7 +9,7 @@ shinyServer(function(input, output) {
   # Create diversity bar chart
   output$barchart <- renderPlot({
     dataPoint <- filter(diversity, Institution == input$barvariable)
-    dataPoint <- melt(dataPoint, value.name = "Percentage",varnames =
+    dataPoint <- melt(dataPoint, value.name = "Percentage", varnames =
                         c("Institution", "Race"))
 
     ggplot(data = dataPoint) +
@@ -22,7 +22,7 @@ shinyServer(function(input, output) {
           ),
           y = Percentage
         ),
-        stat = "identity"
+        stat = "identity", fill = rainbow(n=9)
       ) +
       xlab("Race") +
       ylab("Percentage of Undergraduate Students") +
