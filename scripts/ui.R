@@ -49,15 +49,25 @@ shinyUI(navbarPage(
   # Comparing two colleges panel --------------------------------------------
 
   tabPanel(
-    "graph",
-    titlePanel("Graph"),
+    "Comparison",
+    titlePanel("Compare 2 Colleges"),
     sidebarLayout(
       sidebarPanel(
-        "stuff goes here"
+        h1("Compare 2 Universities here"),
+        
+        textInput("uni_1", "Enter 1st University", ""),
+        textInput("uni_2", "Enter 2nd University", "")
+        
+      
       ), # end of sidebarPanel
       mainPanel(
-        "More stuff goes here"
+        h1("Here is the relevant information"),
+        dataTableOutput('table')
+        
+        
+        
       ) # End of mainPanel
     ) # End of sidebarLayout
   ) # End of tabPanel
-)) # End of shinyUI, navbarPage
+) # End of shinyUI, navbarPage
+)

@@ -1,6 +1,8 @@
 library(shiny)
+library(dplyr)
 library(ggplot2)
 library(reshape2)
+source("../scripts/comparisontable.R")
 source("../scripts/comparisonbarchart.R")
 
 # Start Shiny Server
@@ -31,4 +33,7 @@ shinyServer(function(input, output) {
             axis.title = element_text(size=14, face="bold"),
             plot.title = element_text(size=20, face="bold", hjust = 0.5))
   })
+ 
+    output$table <- renderDataTable(final_data_table)
+  
 }) # End of shinyServer
