@@ -11,18 +11,9 @@ shinyServer(function(input, output){
 
 # Map Section -------------------------------------------------------------
   
-  # Define reactive variables
-
-  
   # Select map dataframe
   data_15_map <- data_2015_16 %>% filter(HIGHDEG == 3 | HIGHDEG == 4) %>%
-    filter(ST_FIPS < 56) %>% filter(CCBASIC > 14)
-  
-    # select(name = INSTNM, city = CITY,
-    #        state = STABBR, insturl = INSTURL,
-    #        lat = LATITUDE, lng = LONGITUDE,
-    #        tuition_in = TUITIONFEE_IN, tuition_out = TUITIONFEE_OUT,
-    #        adm_rate = ADM_RATE)
+    filter(ST_FIPS < 56) %>% filter(CCBASIC > 14) %>% filter(UGDS > 0)
   
   # Convert lat, lon, tuition to numeric
   data_15_map$LATITUDE <- as.numeric(data_15_map$LATITUDE)
