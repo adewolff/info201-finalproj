@@ -36,12 +36,12 @@ shinyUI(navbarPage(
       sidebarPanel(
         selectInput(
           "barvariable",
-          label = "Choose Institution",
+          label = h3("Choose Institution"),
           choices = diversity$Institution
         )
       ), # end of sidebarPanel
       mainPanel(
-        plotOutput("barchart")
+        plotOutput("barchart", width = "100%", height = "400px")
       ) # End of mainPanel
     ) # End of sidebarLayout
   ), # End of tabPanel

@@ -26,6 +26,9 @@ shinyServer(function(input, output) {
       ) +
       xlab("Race") +
       ylab("Percentage of Undergraduate Students") +
-      ggtitle(paste("Racial Breakdown by Institution"))
+      ggtitle(paste("Racial Breakdown by Institution")) +
+      theme(axis.text = element_text(size=12),
+            axis.title = element_text(size=14, face="bold"),
+            plot.title = element_text(size=20, face="bold", hjust = 0.5))
   })
 }) # End of shinyServer
