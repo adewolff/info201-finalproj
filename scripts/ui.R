@@ -38,6 +38,21 @@ shinyUI(navbarPage("College Finder",
                               ) # End of mainPanel
                             ) # End of sidebarLayout
                             
-                  ) # End of tabPanel
+                  ), # End of tabPanel
+
+# Comparing two colleges panel --------------------------------------------
+
+tabPanel("graph",
+         titlePanel("Graph"),
+         sidebarLayout(
+           sidebarPanel(
+             "stuff goes here"
+           ), #end of sidebarPanel
+           mainPanel(
+             "More stuff goes here"
+           ) # End of mainPanel
+         ) # End of sidebarLayout
+         
+) # End of tabPanel
   
 )) # End of shinyUI, navbarPage
