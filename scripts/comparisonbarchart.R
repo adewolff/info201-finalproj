@@ -21,7 +21,7 @@ colnames(diversity_raw) <- c("Institution", "White", "Black", "Hispanic",
 diversity <- na.omit(diversity_raw)
 
 # Remove 'Null' values
-diversity <- filter(x, White != "NULL")
+diversity <- filter(diversity, White != "NULL")
 
 # Change columns to numeric
 diversity[, -1] <- sapply(diversity[, -1], as.numeric)

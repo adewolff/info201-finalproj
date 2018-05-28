@@ -27,14 +27,18 @@ shinyUI(navbarPage("College Finder",
 
 # graph panel -------------------------------------------------------------
 
-                   tabPanel("graph",
-                            titlePanel("Graph"),
+                   tabPanel(
+                     "Diversity",
+                            titlePanel("Diversity at a Specific Institution"),
                             sidebarLayout(
                               sidebarPanel(
-                                "stuff goes here"
-                              ), #end of sidebarPanel
+                                selectInput(
+                                  "barvariable",
+                                  label = "Choose Institution",
+                                  choices = diversity$Institution
+                              )), #end of sidebarPanel
                               mainPanel(
-                                "More stuff goes here"
+                                plotOutput("barchart")
                               ) # End of mainPanel
                             ) # End of sidebarLayout
                             
