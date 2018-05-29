@@ -18,7 +18,7 @@ shinyUI(
 
     tabPanel(
       "Map",
-      titlePanel("Geographic map of colleges"),
+      titlePanel("Geographic Map of Institutions"),
       sidebarLayout(
         sidebarPanel(
           sliderInput("price",

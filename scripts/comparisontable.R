@@ -1,7 +1,7 @@
 library(dplyr)
 library(shiny)
-source("../scripts/ui.R")
-df <- read.csv("../data/MERGED2015_16_PP.csv",stringsAsFactors = FALSE)
+source("./ui.R")
+df <- read.csv("./data/MERGED2015_16_PP.csv",stringsAsFactors = FALSE)
 
 # Create a new data (Important Data)
 new_data <- df %>% select("INSTNM", "CITY","UGDS", "UGDS_MEN",

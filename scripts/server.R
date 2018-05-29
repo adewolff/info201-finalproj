@@ -4,10 +4,10 @@ library(ggplot2)
 library(reshape2)
 library(leaflet)
 library(htmltools)
-source("../scripts/comparisontable.R", local = TRUE)
-source("../scripts/comparisonbarchart.R")
+source("./comparisontable.R", local = TRUE)
+source("./comparisonbarchart.R")
 
-data_2015_16 <- read.csv("../data/MERGED2015_16_PP.csv",
+data_2015_16 <- read.csv("./data/MERGED2015_16_PP.csv",
                          stringsAsFactors = F)
 
 # Start Shiny Server

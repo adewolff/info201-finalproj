@@ -4,7 +4,7 @@ library(ggplot2)
 
 
 # load in data
-raw_data <- read.csv("../data/MERGED2015_16_PP.csv", stringsAsFactors = FALSE)
+raw_data <- read.csv("./data/MERGED2015_16_PP.csv", stringsAsFactors = FALSE)
 
 # Create a new data frame with diversity
 diversity_raw <- raw_data %>% select("INSTNM", "UGDS_WHITE", "UGDS_BLACK",

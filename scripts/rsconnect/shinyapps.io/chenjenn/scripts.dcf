@@ -1,0 +1,12 @@
+name: scripts
+title: scripts
+username:
+account: chenjenn
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 350278
+bundleId: 1397588
+url: https://chenjenn.shinyapps.io/scripts/
+when: 1527572336.65534
+asMultiple: FALSE
+asStatic: FALSE
