@@ -1,4 +1,5 @@
 library(leaflet)
+source("./scripts/comparisonbarchart.R", local = TRUE)
 
 shinyUI(
   navbarPage(
@@ -54,8 +55,8 @@ shinyUI(
         ), # end of sidebarPanel
         mainPanel(
           h4("Pick or search for an institution to view the racial breakdown.
-                   This bar graph shows the undergraduate student body broken 
-                   down by race in percents. Note that some institutions are 
+                   This bar graph shows the undergraduate student body broken
+                   down by race in percents. Note that some institutions are
                    absent because they had no data for diversity."),
           plotOutput("barchart", width = "100%", height = "450px")
         ) # End of mainPanel

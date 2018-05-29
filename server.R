@@ -4,8 +4,8 @@ library(ggplot2)
 library(reshape2)
 library(leaflet)
 library(htmltools)
-source("./comparisontable.R", local = TRUE)
-source("./comparisonbarchart.R")
+source("./scripts/comparisonbarchart.R", local = TRUE)
+source("./scripts/comparisontable.R", local = TRUE)
 
 data_2015_16 <- read.csv("./data/MERGED2015_16_PP.csv",
                          stringsAsFactors = F)
@@ -15,32 +15,7 @@ shinyServer(function(input, output) {
 
   # Create diversity bar chart
   output$barchart <- renderPlot({
-    dataPoint <- filter(diversity, Institution == input$barvariable)
-    dataPoint <- melt(dataPoint,
-      value.name = "Percentage", varnames =
-        c("Institution", "Race")
-    )
-
-    ggplot(data = dataPoint) +
-      geom_bar(
-        mapping = aes(
-          x = c(
-            "White", "Black", "Hispanic", "Asian",
-            "American Indian", "Pacific Islander",
-            "Two or More Races", "Non-resident Aliens", "Unknown"
-          ),
-          y = Percentage
-        ),
-        stat = "identity", fill = rainbow(n = 9)
-      ) +
-      xlab("Race") +
-      ylab("% of Undergraduate Students") +
-      ggtitle(paste("Racial Breakdown by Institution in Percents")) +
-      theme(
-        axis.text = element_text(size = 12),
-        axis.title = element_text(size = 14, face = "bold"),
-        plot.title = element_text(size = 20, face = "bold", hjust = 0.5)
-      )
+    comparison_chart(input$barvariable)
   })
 
   reactiveDf <- reactive({

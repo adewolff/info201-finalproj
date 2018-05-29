@@ -5,8 +5,8 @@ account: chenjenn
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 350278
-bundleId: 1397588
+bundleId: 1397618
 url: https://chenjenn.shinyapps.io/scripts/
-when: 1527572336.65534
+when: 1527573866.8184
 asMultiple: FALSE
 asStatic: FALSE
