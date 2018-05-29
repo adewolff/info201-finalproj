@@ -1,8 +1,9 @@
 library(leaflet)
+library(shinythemes)
 source("./scripts/comparisonbarchart.R", local = TRUE)
 
 shinyUI(
-  navbarPage(
+  navbarPage(theme = shinytheme("superhero"),
     "College Finder",
 
 
@@ -49,16 +50,16 @@ shinyUI(
         sidebarPanel(
           selectInput(
             "barvariable",
-            label = h3("Choose Institution"),
+            label = "Choose Institution",
             choices = diversity$Institution
-          )
-        ), # end of sidebarPanel
-        mainPanel(
-          h4("Pick or search for an institution in the United States to view the
+          ),
+          "Pick or search for an institution in the United States to view the
                    racial breakdown. This bar graph shows the undergraduate 
                    student body broken down by race in percents (%). Note that 
                    some institutions are absent because they had no data for
-                   diversity."),
+                   diversity."
+        ), # end of sidebarPanel
+        mainPanel(
           plotOutput("barchart", width = "100%", height = "450px")
         ) # End of mainPanel
       ) # End of sidebarLayout
@@ -71,13 +72,13 @@ shinyUI(
       titlePanel("Compare 2 Colleges"),
       sidebarLayout(
         sidebarPanel(
-          h1("Compare 2 Universities here"),
+          "Universities to compare:",
 
           textInput("uni_1", "Enter 1st University", "Alabama A & M University"),
           textInput("uni_2", "Enter 2nd University", "Amridge University")
         ), # end of sidebarPanel
         mainPanel(
-          h1("Here is the relevant information"),
+          "Here is the relevant information",
           dataTableOutput("table")
         ) # End of mainPanel
       ) # End of sidebarLayout
