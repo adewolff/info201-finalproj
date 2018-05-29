@@ -13,8 +13,10 @@ colnames(new_data) <- c("Institution", "City", "Number_of_Undergraduates", "UG_M
 
 
 # Remove 'Null' values- Non UG College
-new_data <- filter(new_data, new_data$Number_of_Undergraduates != "NULL" & new_data$Number_of_Undergraduates != 0)
-new_data$Cost_of_Attendance[new_data$Cost_of_Attendance=="NULL"] <- "Not Availible"
+new_data <- filter(new_data, new_data$Number_of_Undergraduates != "NULL" &
+                     new_data$Number_of_Undergraduates != 0)
+new_data$Cost_of_Attendance[new_data$Cost_of_Attendance=="NULL"] <-
+  "Not Availible"
 new_data$Avg_SAT_Score[new_data$Avg_SAT_Score=="NULL"] <- "Not Availible"
 
 
