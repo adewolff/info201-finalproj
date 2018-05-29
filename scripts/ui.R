@@ -41,7 +41,7 @@ shinyUI(navbarPage(
         )
       ), # end of sidebarPanel
       mainPanel(
-        plotOutput("barchart", width = "100%", height = "400px")
+        plotOutput("barchart", width = "100%", height = "450px")
       ) # End of mainPanel
     ) # End of sidebarLayout
   ), # End of tabPanel
