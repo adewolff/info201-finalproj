@@ -40,7 +40,7 @@ shinyUI(
     ), # End of tabPanel
 
 
-    # graph panel -------------------------------------------------------------
+    # Diversity panel -------------------------------------------------------------
 
     tabPanel(
       "Diversity",
@@ -54,10 +54,11 @@ shinyUI(
           )
         ), # end of sidebarPanel
         mainPanel(
-          h4("Pick or search for an institution to view the racial breakdown.
-                   This bar graph shows the undergraduate student body broken
-                   down by race in percents. Note that some institutions are
-                   absent because they had no data for diversity."),
+          h4("Pick or search for an institution in the United States to view the
+                   racial breakdown. This bar graph shows the undergraduate 
+                   student body broken down by race in percents (%). Note that 
+                   some institutions are absent because they had no data for
+                   diversity."),
           plotOutput("barchart", width = "100%", height = "450px")
         ) # End of mainPanel
       ) # End of sidebarLayout
