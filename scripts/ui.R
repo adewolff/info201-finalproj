@@ -55,8 +55,8 @@ shinyUI(navbarPage(
       sidebarPanel(
         h1("Compare 2 Universities here"),
         
-        textInput("uni_1", "Enter 1st University", ""),
-        textInput("uni_2", "Enter 2nd University", "")
+        textInput("uni_1", "Enter 1st University", "Alabama A & M University"),
+        textInput("uni_2", "Enter 2nd University", "Amridge University")
         
       
       ), # end of sidebarPanel
