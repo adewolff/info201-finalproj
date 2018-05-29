@@ -34,8 +34,8 @@ shinyServer(function(input, output) {
         stat = "identity", fill = rainbow(n = 9)
       ) +
       xlab("Race") +
-      ylab("Percentage of Undergraduate Students") +
-      ggtitle(paste("Racial Breakdown by Institution")) +
+      ylab("% of Undergraduate Students") +
+      ggtitle(paste("Racial Breakdown by Institution in Percents")) +
       theme(
         axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = "bold"),
