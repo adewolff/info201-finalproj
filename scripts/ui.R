@@ -24,9 +24,7 @@ shinyUI(navbarPage(
                selectInput("loc",
                            "State to look in:",
                            choices = as.list(state.abb),
-                           selected = "WA",multiple = TRUE),
-               checkboxInput("pub",
-                             "Public schools only")
+                           selected = "WA",multiple = TRUE)
              ), # End of sideparPanel
              mainPanel(
                leafletOutput("map")
