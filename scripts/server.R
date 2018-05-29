@@ -7,7 +7,7 @@ library(htmltools)
 source("../scripts/comparisontable.R", local = TRUE)
 source("../scripts/comparisonbarchart.R")
 
-data_2015_16 <- read.csv("../data/merged/MERGED2015_16_PP.csv",
+data_2015_16 <- read.csv("../data/MERGED2015_16_PP.csv",
                          stringsAsFactors = F)
 
 # Start Shiny Server
