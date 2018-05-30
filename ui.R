@@ -6,10 +6,10 @@ shinyUI(
   navbarPage(
     theme = shinytheme("superhero"),
     h3("College Finder"),
-
-
+    
+    
     # about panel -------------------------------------------------------------
-
+    
     tabPanel(
       h4("About"),
       titlePanel(h3("About College Finder")),
@@ -29,25 +29,25 @@ shinyUI(
         finding the right college which is why we have created College Finder.
         <br>"
       ))
-    ), # End of tabPanel
-
-
+      ), # End of tabPanel
+    
+    
     # map panel ---------------------------------------------------------------
-
+    
     tabPanel(
       h4("Map"),
       titlePanel(h3("Geographic Map of Institutions")),
       sidebarLayout(
         sidebarPanel(
           sliderInput("price",
-            "Maximum price of tuition per year:",
-            min = 1000, max = 53000,
-            value = 10000, step = 1000
+                      "Maximum price of tuition per year:",
+                      min = 1000, max = 53000,
+                      value = 10000, step = 1000
           ),
           selectInput("loc",
-            "State to look in:",
-            choices = as.list(state.abb),
-            selected = "WA", multiple = TRUE
+                      "State to look in:",
+                      choices = as.list(state.abb),
+                      selected = "WA", multiple = TRUE
           )
         ), # End of sideparPanel
         mainPanel(
@@ -55,10 +55,10 @@ shinyUI(
         ) # End of mainPanel
       ) # End of sidebarLayout
     ), # End of tabPanel
-
-
+    
+    
     # Diversity panel ----------------------------------------------------------
-
+    
     tabPanel(
       h4("Diversity"),
       titlePanel(h3("Diversity at a Specific Institution")),
@@ -70,26 +70,26 @@ shinyUI(
             choices = diversity$Institution
           ),
           "Pick or search for an institution in the United States to view the
-                   racial breakdown. This bar graph shows the undergraduate
-                   student body broken down by race in percentages (%). Note
-                   that some institutions are absent because they had no data
-                   for diversity."
+          racial breakdown. This bar graph shows the undergraduate
+          student body broken down by race in percentages (%). Note
+          that some institutions are absent because they had no data
+          for diversity."
         ), # end of sidebarPanel
         mainPanel(
           plotOutput("barchart", width = "100%", height = "450px")
         ) # End of mainPanel
-      ) # End of sidebarLayout
+        ) # End of sidebarLayout
     ), # End of tabPanel
-
+    
     # Comparing two colleges panel --------------------------------------------
-
+    
     tabPanel(
       h4("Comparison"),
       titlePanel(h3("Compare 2 Colleges")),
       sidebarLayout(
         sidebarPanel(
           "Universities to Compare:",
-
+          
           textInput("uni_1", "Enter 1st University",
                     "Alabama A & M University"),
           textInput("uni_2", "Enter 2nd University", "Amridge University")
@@ -100,5 +100,5 @@ shinyUI(
         ) # End of mainPanel
       ) # End of sidebarLayout
     ) # End of tabPanel
-  ) # End of shinyUI, navbarPage
-)
+      ) # End of shinyUI, navbarPage
+      )
