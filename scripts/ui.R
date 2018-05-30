@@ -1,78 +1,109 @@
-shinyUI(navbarPage(
-  "College Finder",
+library(leaflet)
+library(shinythemes)
+source("./scripts/comparisonbarchart.R", local = TRUE)
+source("./scripts/comparisontable.R", local = TRUE)
 
 
-  # about panel -------------------------------------------------------------
+shinyUI(
+  navbarPage(
+    theme = shinytheme("superhero"),
+    "College Finder",
 
-  tabPanel(
-    "About",
-    titlePanel("About College Finder"),
-    mainPanel("test")
-  ), # End of tabPanel
+    # about panel -------------------------------------------------------------
 
+    tabPanel(
+      h4("About"),
+      titlePanel("About College Finder"),
+      mainPanel(HTML(
+        "Overwhelmed by your college choices? Stressed about tuition? Don't
+        know which college to attend? Use College Finder to narrow down your
+        choices. <br> <br>
+        This is College Finder. With an interactive map that lets you find
+        institutions in the United States based on tuition. There is also a tab
+        that lets you view the racial breakdown for a particular institution.
+        We know that you may be conflicted over your top two choices, which is
+        why we have a tab that lets you compare two institutions side-by-side.
+        <br> <br>
+        College Finder was created by three University of Washington
+        undergraduate students in INFO 201: Jennifer Chen, Sukhman Dhillon, and
+        Alex de Wolff. We know how stressful the process can be when it comes to
+        finding the right college which is why we have created College Finder.
+        <br>"
+      ))
+    ), # End of tabPanel
 
-  # map panel ---------------------------------------------------------------
+    # map panel ---------------------------------------------------------------
 
-  tabPanel(
-    "Map",
-    titlePanel("Geographic map of colleges"),
-    sidebarLayout(
-      sidebarPanel(
-        "stuff goes here"
-      ), # End of sideparPanel
-      mainPanel(
-        "More stuff goes here"
-      ) # End of mainPanel
-    ) # End of sidebarLayout
-  ), # End of tabPanel
+    tabPanel(
+      h4("Map"),
+      titlePanel("Geographic Map of Institutions"),
+      sidebarLayout(
+        sidebarPanel(
+          sliderInput("price",
+            "Maximum price of tuition per year:",
+            min = 1000, max = 53000,
+            value = 10000, step = 1000
+          ),
+          selectInput("loc",
+            "State to look in:",
+            choices = as.list(state.abb),
+            selected = "WA", multiple = TRUE
+          )
+        ), # End of sideparPanel
+        mainPanel(
+          leafletOutput("map")
+        ) # End of mainPanel
+      ) # End of sidebarLayout
+    ), # End of tabPanel
 
+    # Diversity panel ----------------------------------------------------------
 
-  # graph panel -------------------------------------------------------------
-
-  tabPanel(
-    "Diversity",
-    titlePanel("Diversity at a Specific Institution"),
-    sidebarLayout(
-      sidebarPanel(
-        selectInput(
-          "barvariable",
-          label = h3("Choose Institution"),
-          choices = diversity$Institution
-        )
-      ), # end of sidebarPanel
-      mainPanel(
-        plotOutput("barchart", width = "100%", height = "400px")
-      ) # End of mainPanel
-    ) # End of sidebarLayout
-  ), # End of tabPanel
-
-  # Comparing two colleges panel --------------------------------------------
-
-  tabPanel(
-    "Comparison",
-    titlePanel("Compare 2 Colleges"),
-    sidebarLayout(
-      sidebarPanel(
-        selectInput(
-          "uni_1",
-          label = h3("Choose Institution 1"),
-          choices = new_data$Institution
-        ),
-        
-        selectInput(
-          "uni_2",
-          label = h3("Choose Institution 2"),
-          choices = new_data$Institution
-        )
+    tabPanel(
+      h4("Diversity"),
+      titlePanel(h3("Diversity at a Specific Institution")),
+      sidebarLayout(
+        sidebarPanel(
+          selectInput(
+            "barvariable",
+            label = "Choose Institution",
+            choices = diversity$Institution
+          ),
+          "Pick or search for an institution in the United States to view the
+          racial breakdown. This bar graph shows the undergraduate
+          student body broken down by race in percentages (%). Note
+          that some institutions are absent because they had no data
+          for diversity."
         ), # end of sidebarPanel
-      mainPanel(
-        h1("Here is the relevant information"),
-        dataTableOutput('table')
-        
-        
-        
-      ) # End of mainPanel
-    ) # End of sidebarLayout
-  ) # End of tabPanel
-) # End of shinyUI, navbarPage
+        mainPanel(
+          plotOutput("barchart", width = "100%", height = "450px")
+        ) # End of mainPanel
+      ) # End of sidebarLayout
+    ), # End of tabPanel
+
+    # Comparing two colleges panel --------------------------------------------
+
+    tabPanel(
+      h4("Comparison"),
+      titlePanel(h3("Compare 2 Colleges")),
+      sidebarLayout(
+        sidebarPanel(
+          "Universities to Compare:",
+          selectInput(
+            "uni_1",
+            label = h3("Choose Institution 1"),
+            choices = new_data$Institution
+          ),
+          
+          selectInput(
+            "uni_2",
+            label = h3("Choose Institution 2"),
+            choices = new_data$Institution
+          )
+        ), # end of sidebarPanel
+        mainPanel(
+          tableOutput("table")
+        ) # End of mainPanel
+      ) # End of sidebarLayout
+    ) # End of tabPanel
+  ) # End of shinyUI, navbarPage
 )
