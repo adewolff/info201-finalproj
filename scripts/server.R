@@ -34,7 +34,7 @@ shinyServer(function(input, output) {
             plot.title = element_text(size=20, face="bold", hjust = 0.5))
   })
  
-  reactiveDf <- reactive({ 
+  output$table <- renderTable({ reactive({ 
       #Make the relevant table
       
       uni_1_info <- filter(new_data, new_data$Institution == input$uni_1)
@@ -46,8 +46,10 @@ shinyServer(function(input, output) {
       
       final_data_table <- data.frame(vector_of_index,vector_uni_1, vector_uni_2)
       colnames(final_data_table) <- c("Aspect", "University 1", "University 2")})
-  
-  output$table <- renderTable({reactiveDf()})
+ 
+    return(final_data_table)
+    })
+
 })
 
 # End of shinyServer

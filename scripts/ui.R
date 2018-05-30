@@ -53,13 +53,18 @@ shinyUI(navbarPage(
     titlePanel("Compare 2 Colleges"),
     sidebarLayout(
       sidebarPanel(
-        h1("Compare 2 Universities here"),
+        selectInput(
+          "uni_1",
+          label = h3("Choose Institution 1"),
+          choices = diversity$Institution
+        ),
         
-        textInput("uni_1", "Enter 1st University", "Alabama A & M University"),
-        textInput("uni_2", "Enter 2nd University", "Amridge University")
-        
-      
-      ), # end of sidebarPanel
+        selectInput(
+          "uni_2",
+          label = h3("Choose Institution 2"),
+          choices = diversity$Institution
+        )
+        ), # end of sidebarPanel
       mainPanel(
         h1("Here is the relevant information"),
         dataTableOutput('table')
