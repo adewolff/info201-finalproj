@@ -56,13 +56,13 @@ shinyUI(navbarPage(
         selectInput(
           "uni_1",
           label = h3("Choose Institution 1"),
-          choices = diversity$Institution
+          choices = new_data$Institution
         ),
         
         selectInput(
           "uni_2",
           label = h3("Choose Institution 2"),
-          choices = diversity$Institution
+          choices = new_data$Institution
         )
         ), # end of sidebarPanel
       mainPanel(
