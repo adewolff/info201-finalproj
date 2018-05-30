@@ -64,6 +64,10 @@ shinyServer(function(input, output) {
     filter(UGDS > 0) %>%
     filter(DISTANCEONLY == 0)
   
+  # Update charter college location
+  data_15_map[data_15_map$INSTNM == "Charter College", "CITY"] <- "Anchorage"
+  data_15_map[data_15_map$INSTNM == "Charter College", "STABBR"] <- "AK"
+  
   # Convert lat, lon, tuition to numeric
   data_15_map$LATITUDE <- as.numeric(data_15_map$LATITUDE)
   data_15_map$LONGITUDE <- as.numeric(data_15_map$LONGITUDE)
