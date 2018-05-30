@@ -20,8 +20,8 @@ colnames(new_data) <- c(
 new_data <- filter(new_data, new_data$Number_of_Undergraduates != "NULL" &
   new_data$Number_of_Undergraduates != 0)
 new_data$Cost_of_Attendance[new_data$Cost_of_Attendance == "NULL"] <-
-  "Not Availible"
-new_data$Avg_SAT_Score[new_data$Avg_SAT_Score == "NULL"] <- "Not Availible"
+  "Not Available"
+new_data$Avg_SAT_Score[new_data$Avg_SAT_Score == "NULL"] <- "Not Available"
 
 
 # Mulitply decimals by 100 to get percentage

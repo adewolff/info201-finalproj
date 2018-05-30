@@ -91,12 +91,12 @@ shinyUI(
           "Universities to Compare:",
           
           textInput("uni_1", "Enter 1st University",
-                    "Alabama A & M University"),
-          textInput("uni_2", "Enter 2nd University", "Amridge University")
+                    "University of Washington-Seattle Campus"),
+          textInput("uni_2", "Enter 2nd University",
+                    "Washington State University")
         ), # end of sidebarPanel
         mainPanel(
-          "Here is the relevant information",
-          dataTableOutput("table")
+          tableOutput("table")
         ) # End of mainPanel
       ) # End of sidebarLayout
     ) # End of tabPanel

@@ -46,12 +46,13 @@ shinyServer(function(input, output) {
     )
     
     final_data_table <- data.frame(vector_of_index, vector_uni_1, vector_uni_2)
-    colnames(final_data_table) <- c("Aspect", "University 1", "University 2")
+    colnames(final_data_table) <- c("", "University 1", "University 2")
+    return(final_data_table)
   })
   
   output$table <- renderTable({
     reactiveDf()
-  })
+  }, striped = TRUE, hover = TRUE)
   
   
   # Map Section -------------------------------------------------------------
