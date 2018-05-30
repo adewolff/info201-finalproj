@@ -15,14 +15,12 @@ colnames(new_data) <- c(
   "UG_Women", "Cost_of_Attendance", "Avg_SAT_Score"
 )
 
-
 # Remove 'Null' values- Non UG College
 new_data <- filter(new_data, new_data$Number_of_Undergraduates != "NULL" &
   new_data$Number_of_Undergraduates != 0)
 new_data$Cost_of_Attendance[new_data$Cost_of_Attendance == "NULL"] <-
   "Not Available"
 new_data$Avg_SAT_Score[new_data$Avg_SAT_Score == "NULL"] <- "Not Available"
-
 
 # Mulitply decimals by 100 to get percentage
 new_data$UG_Men[new_data$UG_Men == "NULL"] <- 0

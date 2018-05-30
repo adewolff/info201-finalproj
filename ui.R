@@ -7,7 +7,6 @@ shinyUI(
     theme = shinytheme("superhero"),
     "College Finder",
 
-
     # about panel -------------------------------------------------------------
 
     tabPanel(
@@ -31,80 +30,75 @@ shinyUI(
       ))
     ), # End of tabPanel
 
-
     # map panel ---------------------------------------------------------------
 
     tabPanel(
       h4("Map"),
-      titlePanel(
-        h3("Geographic Map of Institutions"),
-        sidebarLayout(
-          sidebarPanel(
-            sliderInput("price",
-              "Maximum price of tuition per year:",
-              min = 1000, max = 53000,
-              value = 10000, step = 1000
-            ),
-            selectInput("loc",
-              "State to look in:",
-              choices = as.list(state.abb),
-              selected = "WA", multiple = TRUE
-            )
-          ), # End of sideparPanel
-          mainPanel(
-            leafletOutput("map")
-          ) # End of mainPanel
-        ) # End of sidebarLayout
-      ), # End of tabPanel
+      titlePanel("Geographic Map of Institutions"),
+      sidebarLayout(
+        sidebarPanel(
+          sliderInput("price",
+            "Maximum price of tuition per year:",
+            min = 1000, max = 53000,
+            value = 10000, step = 1000
+          ),
+          selectInput("loc",
+            "State to look in:",
+            choices = as.list(state.abb),
+            selected = "WA", multiple = TRUE
+          )
+        ), # End of sideparPanel
+        mainPanel(
+          leafletOutput("map")
+        ) # End of mainPanel
+      ) # End of sidebarLayout
+    ), # End of tabPanel
 
+    # Diversity panel ----------------------------------------------------------
 
-      # Diversity panel --------------------------------------------------------
-
-      tabPanel(
-        h4("Diversity"),
-        titlePanel(h3("Diversity at a Specific Institution")),
-        sidebarLayout(
-          sidebarPanel(
-            selectInput(
-              "barvariable",
-              label = "Choose Institution",
-              choices = diversity$Institution
-            ),
-            "Pick or search for an institution in the United States to view the
+    tabPanel(
+      h4("Diversity"),
+      titlePanel(h3("Diversity at a Specific Institution")),
+      sidebarLayout(
+        sidebarPanel(
+          selectInput(
+            "barvariable",
+            label = "Choose Institution",
+            choices = diversity$Institution
+          ),
+          "Pick or search for an institution in the United States to view the
           racial breakdown. This bar graph shows the undergraduate
           student body broken down by race in percentages (%). Note
           that some institutions are absent because they had no data
           for diversity."
-          ), # end of sidebarPanel
-          mainPanel(
-            plotOutput("barchart", width = "100%", height = "450px")
-          ) # End of mainPanel
-        ) # End of sidebarLayout
-      ), # End of tabPanel
+        ), # end of sidebarPanel
+        mainPanel(
+          plotOutput("barchart", width = "100%", height = "450px")
+        ) # End of mainPanel
+      ) # End of sidebarLayout
+    ), # End of tabPanel
 
-      # Comparing two colleges panel -------------------------------------------
+    # Comparing two colleges panel --------------------------------------------
 
-      tabPanel(
-        h4("Comparison"),
-        titlePanel(h3("Compare 2 Colleges")),
-        sidebarLayout(
-          sidebarPanel(
-            "Universities to Compare:",
-
-            textInput(
-              "uni_1", "Enter 1st University",
-              "University of Washington-Seattle Campus"
-            ),
-            textInput(
-              "uni_2", "Enter 2nd University",
-              "Washington State University"
-            )
-          ), # end of sidebarPanel
-          mainPanel(
-            tableOutput("table")
-          ) # End of mainPanel
-        ) # End of sidebarLayout
-      ) # End of tabPanel
-    ) # End of shinyUI, navbarPage
-  )
+    tabPanel(
+      h4("Comparison"),
+      titlePanel(h3("Compare 2 Colleges")),
+      sidebarLayout(
+        sidebarPanel(
+          "Universities to Compare:",
+          textInput(
+            "uni_1", "Enter 1st University",
+            "University of Washington-Seattle Campus"
+          ),
+          textInput(
+            "uni_2", "Enter 2nd University",
+            "Washington State University"
+          )
+        ), # end of sidebarPanel
+        mainPanel(
+          tableOutput("table")
+        ) # End of mainPanel
+      ) # End of sidebarLayout
+    ) # End of tabPanel
+  ) # End of shinyUI, navbarPage
 )

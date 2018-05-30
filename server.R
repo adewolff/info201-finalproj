@@ -19,8 +19,10 @@ shinyServer(function(input, output) {
   })
   reactiveDf <- reactive({
     # Make the relevant table
+
     uni_1_info <- filter(new_data, new_data$Institution == input$uni_1)
     uni_2_info <- filter(new_data, new_data$Institution == input$uni_2)
+
     vector_of_index <- c(
       "Institution Name", "City", "No_of_Undergrads",
       "UG_men", "UG_women", "Cost for UG",
@@ -42,11 +44,13 @@ shinyServer(function(input, output) {
     colnames(final_data_table) <- c("", "University 1", "University 2")
     return(final_data_table)
   })
+
   output$table <- renderTable({
     reactiveDf()
-  },
-  striped = TRUE, hover = TRUE)
+  }, striped = TRUE, hover = TRUE)
+
   # Map Section -------------------------------------------------------------
+
   # Select map dataframe
   data_15_map <- data_2015_16 %>%
     filter(HIGHDEG == 3 | HIGHDEG == 4) %>%
