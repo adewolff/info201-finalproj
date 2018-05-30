@@ -73,6 +73,9 @@ shinyServer(function(input, output) {
   data_15_map <- data_15_map %>%
     filter(!is.na(TUITIONFEE_IN) & !is.na(TUITIONFEE_OUT))
   
+  # Change NA admission rate to Not available
+  data_15_map[data_15_map$ADM_RATE == "NULL", "ADM_RATE"] <- "Not Available"
+  
   
   # Filter by schools with tution matching input
   subset_df <- reactive({
