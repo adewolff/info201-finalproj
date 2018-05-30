@@ -4,23 +4,40 @@ source("./scripts/comparisonbarchart.R", local = TRUE)
 
 shinyUI(
   navbarPage(theme = shinytheme("superhero"),
-    "College Finder",
+    h3("College Finder"),
 
 
     # about panel -------------------------------------------------------------
 
     tabPanel(
-      "About",
-      titlePanel("About College Finder"),
-      mainPanel("test")
-    ), # End of tabPanel
+      h4("About"),
+      titlePanel(h3("About College Finder")),
+      mainPanel(HTML(
+        "Overwhelmed by your college choices? Stressed about tuition? Don't know 
+        which college to attend? Use College Finder to narrow down your choices.
+        <br>
+        <br>
+        This is College Finder. With an interactive map 
+        that let's you find institutions in the United States based on tuition.
+        There is also a tab that lets you view the racial breakdown for a 
+        particular institution. We know that you may be conflicted over your top 
+        two choices, which is why we have a tab that lets you compare two 
+        institutions side-by-side. 
+        <br>
+        <br>
+        College Finder was created by three University of Washington 
+        undergraduate students in INFO 201: Jennifer Chen, Sukhman Dhillon, and 
+        Alex de Wolff. We know how stressful the process can be when it comes to
+        finding the right college which is why we have created College Finder.
+        <br>")
+    )), # End of tabPanel
 
 
     # map panel ---------------------------------------------------------------
 
     tabPanel(
-      "Map",
-      titlePanel("Geographic Map of Institutions"),
+      h4("Map"),
+      titlePanel(h3("Geographic Map of Institutions")),
       sidebarLayout(
         sidebarPanel(
           sliderInput("price",
@@ -44,8 +61,8 @@ shinyUI(
     # Diversity panel -------------------------------------------------------------
 
     tabPanel(
-      "Diversity",
-      titlePanel("Diversity at a Specific Institution"),
+      h4("Diversity"),
+      titlePanel(h3("Diversity at a Specific Institution")),
       sidebarLayout(
         sidebarPanel(
           selectInput(
@@ -68,8 +85,8 @@ shinyUI(
     # Comparing two colleges panel --------------------------------------------
 
     tabPanel(
-      "Comparison",
-      titlePanel("Compare 2 Colleges"),
+      h4("Comparison"),
+      titlePanel(h3("Compare 2 Colleges")),
       sidebarLayout(
         sidebarPanel(
           "Universities to compare:",
