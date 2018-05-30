@@ -16,6 +16,9 @@ colnames(diversity_raw) <- c("Institution", "White", "Black", "Hispanic",
                              "Two or More Races", "Non-resident Aliens",
                              "Unknown")
 
+# Include which state college is located incase of duplicate names
+diversity_raw$Institution <- paste(raw_data$INSTNM, raw_data$STABBR, sep=" in ")
+
 # Remove 'NA' values
 diversity <- na.omit(diversity_raw)
 
@@ -29,6 +32,7 @@ diversity[, -1] <- sapply(diversity[, -1], as.numeric)
 for (i in colnames(diversity)[-1]) {
   diversity[i] <- diversity[i] * 100
 }
+
 
 
 comparison_chart <- function(institution) {

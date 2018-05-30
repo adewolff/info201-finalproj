@@ -89,7 +89,7 @@ shinyUI(
       titlePanel(h3("Compare 2 Colleges")),
       sidebarLayout(
         sidebarPanel(
-          "Universities to compare:",
+          "Universities to Compare:",
 
           textInput("uni_1", "Enter 1st University", "Alabama A & M University"),
           textInput("uni_2", "Enter 2nd University", "Amridge University")
