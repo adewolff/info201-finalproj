@@ -86,16 +86,13 @@ shinyUI(
       sidebarLayout(
         sidebarPanel(
           "Universities to Compare:",
-          selectInput(
-            "uni_1",
-            label = h3("Choose Institution 1"),
-            choices = new_data$Institution
+          textInput(
+            "uni_1", "Enter 1st University",
+            "University of Washington-Seattle Campus"
           ),
-          
-          selectInput(
-            "uni_2",
-            label = h3("Choose Institution 2"),
-            choices = new_data$Institution
+          textInput(
+            "uni_2", "Enter 2nd University",
+            "Washington State University"
           )
         ), # end of sidebarPanel
         mainPanel(
