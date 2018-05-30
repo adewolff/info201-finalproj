@@ -61,7 +61,8 @@ shinyServer(function(input, output) {
     filter(HIGHDEG == 3 | HIGHDEG == 4) %>%
     filter(ST_FIPS < 56) %>%
     filter(CCBASIC > 14) %>%
-    filter(UGDS > 0)
+    filter(UGDS > 0) %>%
+    filter(DISTANCEONLY == 0)
   
   # Convert lat, lon, tuition to numeric
   data_15_map$LATITUDE <- as.numeric(data_15_map$LATITUDE)
