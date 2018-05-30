@@ -99,6 +99,8 @@ shinyServer(function(input, output) {
           "<strong>", subset_df()$INSTNM,
           "</strong>",
           "<br>",
+          '<a href="https://', subset_df()$INSTURL, '">Website</a>',
+          "<br>",
           "In-State Tuition: $",
           subset_df()$TUITIONFEE_IN,
           "<br>",
