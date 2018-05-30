@@ -17,7 +17,8 @@ colnames(diversity_raw) <- c("Institution", "White", "Black", "Hispanic",
                              "Unknown")
 
 # Include which state college is located incase of duplicate names
-diversity_raw$Institution <- paste(raw_data$INSTNM, raw_data$STABBR, sep=" in ")
+diversity_raw$Institution <- paste(raw_data$INSTNM, raw_data$STABBR,
+                                   sep = " in ")
 
 # Remove 'NA' values
 diversity <- na.omit(diversity_raw)
@@ -33,15 +34,11 @@ for (i in colnames(diversity)[-1]) {
   diversity[i] <- diversity[i] * 100
 }
 
-
-
 comparison_chart <- function(institution) {
   dataPoint <- filter(diversity, Institution == institution)
-  dataPoint <- melt(dataPoint,
-                    value.name = "Percentage", varnames =
+  dataPoint <- melt(dataPoint, value.name = "Percentage", varnames =
                       c("Institution", "Race")
   )
-  
   ggplot(data = dataPoint) +
     geom_bar(
       mapping = aes(
@@ -61,5 +58,5 @@ comparison_chart <- function(institution) {
       axis.text = element_text(size = 12),
       axis.title = element_text(size = 14, face = "bold"),
       plot.title = element_text(size = 20, face = "bold", hjust = 0.5)
-    ) %>% return() 
+    ) %>% return()
 }
